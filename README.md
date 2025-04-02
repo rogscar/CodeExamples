@@ -2,24 +2,24 @@ This repository contains a C# class, GetBikeOrder, designed to retrieve bike ord
 
 Heres is how to use this class.
 
-using CodeExamples;
-using DataObjects; // Assumes BikeOrder class is defined here
-
-var bikeOrderService = new GetBikeOrder();
-var statuses = new List<string> { "OPEN", "COMPLETE" };
-string connectionString = "your-connection-string-here";
-
-// Fetch data asynchronously
-DataTable dataTable = await bikeOrderService.GetBikeOrderDataAsync(statuses, connectionString);
-
-// Convert to list of BikeOrder objects
-List<BikeOrder> bikeOrders = bikeOrderService.ConvertDataTableToBikeOrders(dataTable);
-
-// Use the data
-foreach (var order in bikeOrders)
-{
-    Console.WriteLine($"Order #{order.OrderNumber}: {order.OrderStatus}");
-}
+            using CodeExamples;
+            using DataObjects; // Assumes BikeOrder class is defined here
+            
+            var bikeOrderService = new GetBikeOrder();
+            var statuses = new List<string> { "OPEN", "COMPLETE" };
+            string connectionString = "your-connection-string-here";
+            
+            // Fetch data asynchronously
+            DataTable dataTable = await bikeOrderService.GetBikeOrderDataAsync(statuses, connectionString);
+            
+            // Convert to list of BikeOrder objects
+            List<BikeOrder> bikeOrders = bikeOrderService.ConvertDataTableToBikeOrders(dataTable);
+            
+            // Use the data
+            foreach (var order in bikeOrders)
+            {
+                Console.WriteLine($"Order #{order.OrderNumber}: {order.OrderStatus}");
+            }
 
 Used async/await for I/O-bound database calls to improve scalability
 
