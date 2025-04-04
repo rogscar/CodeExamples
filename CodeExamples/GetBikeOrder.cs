@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
-using DataObjects; 
+using DataObjects; // Assuming this is where BikeOrder lives
 
 namespace CodeExamples
 {
@@ -75,9 +75,8 @@ namespace CodeExamples
                         }
                         catch (Exception ex)
                         {
-                            // Log property-level failure (in a real app, use ILogger)
                             Console.WriteLine($"Failed to set property {prop.Name} for OrderNumber {row["OrderNumber"]}: {ex.Message}");
-                            // Continue to next property; partial data is still usable
+                            continue;
                         }
                     }
 
@@ -85,10 +84,8 @@ namespace CodeExamples
                 }
                 catch (Exception ex)
                 {
-                    // Log row-level failure and skip the row
                     Console.WriteLine($"Failed to parse row with OrderNumber {row["OrderNumber"]}: {ex.Message}");
-                    // In a real app, consider logging to a file or telemetry system
-                    continue; // Skip this row, keep processing others
+                    continue;
                 }
             }
 
@@ -103,7 +100,7 @@ namespace CodeExamples
                 Type t when t == typeof(decimal) => 0m,
                 Type t when t == typeof(DateTime) => DateTime.Now,
                 Type t when t == typeof(int) => 0,
-                _ => null // Fallback for other types
+                _ => null
             };
         }
 
@@ -131,6 +128,40 @@ namespace CodeExamples
             query.AppendLine("ORDER BY bo.ordernumber DESC");
 
             return query.ToString();
+        }
+    }
+
+    // Usage example integrated into a Program class
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            // Initialize the service
+            var bikeOrderService = new GetBikeOrder();
+
+            // Define inputs
+            var statuses = new List<string> { "OPEN", "COMPLETE" };
+            string connectionString = "Server=your-server;Database=your-db;User Id=your-user;Password=your-password;TrustServerCertificate=True;";
+
+            try
+            {
+                // Fetch data asynchronously
+                DataTable dataTable = await bikeOrderService.GetBikeOrderDataAsync(statuses, connectionString);
+
+                // Convert to list of BikeOrder objects
+                List<BikeOrder> bikeOrders = bikeOrderService.ConvertDataTableToBikeOrders(dataTable);
+
+                // Use the data
+                Console.WriteLine("Bike Orders Retrieved:");
+                foreach (var order in bikeOrders)
+                {
+                    Console.WriteLine($"Order #{order.OrderNumber}: {order.OrderStatus} - {order.BikeType} (Qty: {order.Quantity})");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving bike orders: {ex.Message}");
+            }
         }
     }
 }
