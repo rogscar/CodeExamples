@@ -1,6 +1,6 @@
 # C# Code Examples
 
-This repository contains C# classes designed for data retrieval and processing in modern .NET applications.
+This repository contains C# classes and VB Files designed for data retrieval and processing in modern .NET applications.
 
 ## Classes
 
