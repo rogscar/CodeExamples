@@ -1,4 +1,5 @@
 CodeExamples
+
 Welcome to CodeExamples, a curated collection of code snippets and projects showcasing various programming concepts, languages, and techniques. This repository serves as a resource for developers, learners, and enthusiasts looking to explore practical coding examples or use them as a reference for their own projects.
 About
 This repository contains a variety of code examples ranging from simple scripts to more complex projects. Whether you're learning a new programming language, experimenting with algorithms, or looking for inspiration, you'll find something useful here. The examples are organized by language or topic for easy navigation.
