@@ -1,43 +1,43 @@
-# C# and VB Code Examples
+CodeExamples
+Welcome to CodeExamples, a curated collection of code snippets and projects showcasing various programming concepts, languages, and techniques. This repository serves as a resource for developers, learners, and enthusiasts looking to explore practical coding examples or use them as a reference for their own projects.
+About
+This repository contains a variety of code examples ranging from simple scripts to more complex projects. Whether you're learning a new programming language, experimenting with algorithms, or looking for inspiration, you'll find something useful here. The examples are organized by language or topic for easy navigation.
+Features
 
-This repository contains C# classes and VB Files designed for data retrieval and processing in modern .NET applications.
+Diverse Languages: Examples in popular programming languages like Python, JavaScript, C++, and more.
+Well-Commented Code: Each example includes comments to explain the logic and functionality.
+Organized Structure: Code is categorized by language or topic for quick access.
+Beginner to Advanced: Suitable for all skill levels, from introductory snippets to advanced implementations.
 
-## Classes
+Getting Started
+To explore the code examples:
 
-### GetBikeOrder
-The `GetBikeOrder` class is designed to retrieve bike order data from a SQL Server database and convert it into a list of strongly-typed `BikeOrder` objects from the `DataObjects` namespace. It demonstrates modern .NET practices, including:
+Clone the Repository:git clone https://github.com/rogscar/CodeExamples.git
 
-- Asynchronous database access using `Microsoft.Data.SqlClient`.
-- Secure parameterized SQL queries to prevent SQL injection.
-- Robust error handling with try-catch blocks and meaningful exceptions.
-- Reflection-based mapping of `DataTable` rows to object properties.
 
-**Usage**: An example of how to use `GetBikeOrder` is included in the class file itself within the `Program` class's `Main` method.
+Navigate to the desired folder for a specific language or topic.
+Open the code files in your preferred editor or IDE.
+Follow any additional setup instructions provided in the specific example's folder (if applicable).
 
-### RestClient
-The `RestClient` class provides a simple, reusable way to make RESTful API calls, specifically a GET request to retrieve charge data. It showcases modern .NET practices for HTTP communication, including:
+Usage
+Each folder contains its own instructions or comments within the code to guide you on how to run or adapt the examples. Feel free to:
 
-- Asynchronous HTTP requests using `HttpClient`.
-- JSON parsing with `Newtonsoft.Json` to handle API responses.
-- Bearer token authentication for secure API access.
-- Error handling with tuple-based return values for success, data, and error messages.
+Use the code as a learning resource.
+Modify the snippets for your own projects.
+Experiment with the examples to deepen your understanding.
 
-**Usage**: An example of how to use `RestClient` is included in the class file itself within the `Program` class's `Main` method.
+Contributing
+Contributions are welcome! If you'd like to add your own code examples or improve existing ones:
 
-## Examples
-Examples of usage for both classes are embedded in the class files themselves, within a `Program` class with a `Main` method. These examples demonstrate how to instantiate the classes, call their methods, and handle the results in a console application.
+Fork the repository.
+Create a new branch (git checkout -b feature/your-example).
+Add your code in the appropriate folder or create a new one.
+Ensure your code is well-documented and follows the repository's structure.
+Submit a pull request with a clear description of your changes.
 
-## Prerequisites
-- **.NET Framework/Core**: Compatible with .NET versions supporting the used libraries.
-- **NuGet Packages**:
-  - `Microsoft.Data.SqlClient` (for `GetBikeOrder`).
-  - `Newtonsoft.Json` (for `RestClient`).
-- **Database**: A SQL Server instance with `bike_orders` and `bikes` tables (for `GetBikeOrder`).
-- **API Access**: A REST API endpoint with Bearer token authentication (for `RestClient`).
-
-## Getting Started
-1. Clone the repository.
-2. Open the solution in Visual Studio or your preferred IDE.
-3. Install the required NuGet packages.
-4. Update connection strings (for `GetBikeOrder`) or API details (for `RestClient`) in the usage examples.
-5. Run the `Main` method in the desired class file to see it in action.
+Please adhere to the Code of Conduct when contributing.
+License
+This repository is licensed under the MIT License. Feel free to use, modify, and distribute the code as per the license terms.
+Contact
+Have questions or suggestions? Reach out via GitHub Issues or connect with the maintainer at rogscar.
+Happy coding!
